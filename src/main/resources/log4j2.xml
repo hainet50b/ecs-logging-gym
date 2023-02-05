@@ -11,7 +11,7 @@
           serviceName="ecs-logging-gym"
           serviceVersion="0.0.1-SNAPSHOT"
           serviceEnvironment="env-1"
-          serviceNodeName="note-1"
+          serviceNodeName="node-1"
       />
     </Console>
   </Appenders>
