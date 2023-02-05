@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+          pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"
+      />
+    </Console>
+    <Console name="ECS" target="SYSTEM_OUT">
+      <EcsLayout
+          serviceName="ecs-logging-gym"
+          serviceVersion="0.0.1-SNAPSHOT"
+          serviceEnvironment="env-1"
+          serviceNodeName="note-1"
+      />
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="ECS"/>
+    </Root>
+  </Loggers>
+</Configuration>
