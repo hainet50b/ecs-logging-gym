@@ -13,9 +13,26 @@
       <serviceNodeName>node-1</serviceNodeName>
     </encoder>
   </appender>
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>.\log\elastic-logging-gym.log</file>
+    <encoder>
+      <pattern>%d [%thread] %-5level %logger{35} - %msg %n</pattern>
+    </encoder>
+  </appender>
+  <appender name="ECS_FILE" class="ch.qos.logback.core.FileAppender">
+    <file>.\log\elastic-logging-gym.log</file>
+    <encoder class="co.elastic.logging.logback.EcsEncoder">
+      <serviceName>ecs-logging-gym</serviceName>
+      <serviceVersion>0.0.1-SNAPSHOT</serviceVersion>
+      <serviceEnvironment>env-1</serviceEnvironment>
+      <serviceNodeName>node-1</serviceNodeName>
+    </encoder>
+  </appender>
 
   <root level="INFO">
     <appender-ref ref="STDOUT"/>
     <appender-ref ref="ECS"/>
+<!--    <appender-ref ref="FILE"/>-->
+<!--    <appender-ref ref="ECS_FILE"/>-->
   </root>
 </configuration>
